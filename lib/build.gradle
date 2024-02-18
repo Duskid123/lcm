@@ -5,15 +5,39 @@
  * For more details take a look at the 'Building Java & JVM projects' chapter in the Gradle
  * User Manual available at https://docs.gradle.org/7.4.2/userguide/building_java_projects.html
  */
+
+buildscript {
+    repositories {
+        mavenCentral()
+        gradlePluginPortal()
+    }
+    dependencies {
+        classpath "gradle.plugin.com.github.johnrengelman:shadow:7.1.2"
+    }
+}
+
 plugins {
     // Apply the java-library plugin for API and implementation separation.
     id 'java-library'
+    id 'com.github.johnrengelman.shadow' version '7.1.2'
+    id 'java'
 }
 sourceSets  {
     // this may be needed to make entity classes visible to the persistence scanner
     sourceSets.main.output.resourcesDir = sourceSets.main.java.outputDir
 }
 
+
+jar {
+    archiveFileName = 'badbm.jar'
+    manifest {
+        attributes 'Main-Class': 'edu.touro.mco152.bm.App'
+    }
+    duplicatesStrategy = DuplicatesStrategy.EXCLUDE
+    from {
+        configurations.runtimeClasspath.collect { it.isDirectory() ? it : zipTree(it) }
+    }
+}
 
 repositories {
     // Use Maven Central for resolving dependencies.
@@ -41,3 +65,4 @@ tasks.named('test') {
     // Use JUnit Platform for unit tests.
     useJUnitPlatform()
 }
+
