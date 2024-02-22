@@ -22,14 +22,15 @@ plugins {
     id 'com.github.johnrengelman.shadow' version '7.1.2'
     id 'java'
 }
-sourceSets  {
+sourceSets {
     // this may be needed to make entity classes visible to the persistence scanner
-    sourceSets.main.output.resourcesDir = sourceSets.main.java.outputDir
+    sourceSets.main.output.resourcesDir = sourceSets.main.output.classesDirs.asPath
+    compileJava.dependsOn(processResources)
 }
 
 
 jar {
-    archiveFileName = 'badbm.jar'
+    archiveBaseName = 'badbm'
     manifest {
         attributes 'Main-Class': 'edu.touro.mco152.bm.App'
     }
@@ -37,6 +38,16 @@ jar {
     from {
         configurations.runtimeClasspath.collect { it.isDirectory() ? it : zipTree(it) }
     }
+}
+
+task customFatJar(type: Jar) {
+    manifest {
+        attributes 'Main-Class': 'edu.touro.mco152.bm.App'
+    }
+    archiveBaseName = 'badbm'
+    duplicatesStrategy = DuplicatesStrategy.EXCLUDE
+    from { configurations.runtimeClasspath.collect { it.isDirectory() ? it : zipTree(it) } }
+    with jar
 }
 
 repositories {
@@ -52,7 +63,7 @@ dependencies {
     implementation 'com.google.guava:guava:31.0.1-jre'
 
     // Charting api/runtime
-    implementation  group: 'org.jfree', name: 'jfreechart', version: '1.0.17'
+    implementation group: 'org.jfree', name: 'jfreechart', version: '1.0.17'
     // persistence API
     implementation group: 'jakarta.persistence', name: 'jakarta.persistence-api', version: '3.0.0'
     implementation group: 'org.eclipse.persistence', name: 'eclipselink', version: '4.0.2'
