@@ -6,6 +6,7 @@ import edu.touro.mco152.bm.ui.Gui;
 
 import jakarta.persistence.EntityManager;
 
+import javax.swing.*;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
@@ -42,9 +43,9 @@ public class DiskWorker implements Callable<Boolean>{
     // Record any success or failure status returned from SwingWorker (might be us or super)
     Boolean lastStatus = null;  // so far unknown
 
-    InputsForBenchmark inputsForBenchmark = null;
+    UIHandler inputsForBenchmark = null;
 
-    public DiskWorker(InputsForBenchmark inputsForBenchmark){
+    public DiskWorker(UIHandler inputsForBenchmark){
         this.inputsForBenchmark = inputsForBenchmark;
     }
 
@@ -83,7 +84,7 @@ public class DiskWorker implements Callable<Boolean>{
 
         DiskMark wMark, rMark;  // declare vars that will point to objects used to pass progress to UI
 
-        Gui.updateLegend();  // init chart legend info
+        inputsForBenchmark.init();  // init chart legend info
 
         if (App.autoReset) {
             App.resetTestData();
@@ -255,7 +256,7 @@ public class DiskWorker implements Callable<Boolean>{
                     Logger.getLogger(App.class.getName()).log(Level.SEVERE, null, ex);
                     String emsg = "May not have done Write Benchmarks, so no data available to read." +
                             ex.getMessage();
-                    inputsForBenchmark.showMessage(emsg, "Unable to READ", 0);
+                    inputsForBenchmark.showMessage(emsg, "Unable to READ", JOptionPane.ERROR_MESSAGE);
                     inputsForBenchmark.handleMessage(emsg);
                     return false;
                 }

@@ -49,7 +49,7 @@ public class App {
     public static int blockSizeKb = 512;    // size of a block in KBs
     public static DiskWorker worker = null;
 
-    public static InputsForBenchmark BenchUi = null;
+    public static UIHandler BenchUi = null;
     public static int nextMarkNumber = 1;   // number of the next mark
     public static double wMax = -1, wMin = -1, wAvg = -1;
     public static double rMax = -1, rMin = -1, rAvg = -1;
@@ -270,7 +270,7 @@ public class App {
         Gui.mainFrame.adjustSensitivity();
 
         //4. changed this to be able to be generic
-        InputsForBenchmark BenchUi = new SwingImplementation();
+        UIHandler BenchUi = new SwingImplementation();
 
         Callable<Boolean> c = new DiskWorker(BenchUi);
 

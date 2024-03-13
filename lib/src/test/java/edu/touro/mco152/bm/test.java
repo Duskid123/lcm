@@ -12,7 +12,7 @@ public class test {
     @Test
     void start() {
 
-        InputsForBenchmark junit = spy(JUnitVersion.class);
+        UIHandler junit = spy(JUnitVersion.class);
 
         Callable c = new DiskWorker(junit);
 
@@ -25,7 +25,7 @@ public class test {
 
     @Test
     void CheckHandleProgress() {
-        InputsForBenchmark junit = spy(JUnitVersion.class);
+        UIHandler junit = spy(JUnitVersion.class);
 
         Callable c = new DiskWorker(junit);
 

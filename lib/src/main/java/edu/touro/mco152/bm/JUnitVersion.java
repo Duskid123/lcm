@@ -14,7 +14,7 @@ import java.util.concurrent.FutureTask;
  * not 100% sure about the current
  */
 
-public class JUnitVersion implements InputsForBenchmark{
+public class JUnitVersion implements UIHandler {
 
     boolean lastStatus = false;
 
@@ -77,6 +77,11 @@ public class JUnitVersion implements InputsForBenchmark{
     }
 
     @Override
+    public void init() {
+
+    }
+
+    @Override
     public void start() {
         setProperties();
         futureTask = new FutureTask<>(callable);
@@ -96,6 +101,11 @@ public class JUnitVersion implements InputsForBenchmark{
     public void cancel() {
         System.out.println("cancel");
         lastStatus = true;
+    }
+
+    @Override
+    public void showRun(DiskRun run) {
+
     }
 
     private void setupDefaultAsPerProperties()

@@ -9,7 +9,7 @@ import java.util.concurrent.Callable;
  *Not sure if this interface name is good and if the all current methods are good.
  */
 
-public interface InputsForBenchmark {
+public interface UIHandler {
 
     boolean IsCancelled();
 
@@ -32,8 +32,12 @@ public interface InputsForBenchmark {
     void updateUserInterface(String message);
 
     void setProperties();
-    
+
+    void init();
+
     void start();
 
     void cancel();
+
+    void showRun(DiskRun run);
 }

@@ -12,7 +12,7 @@ import java.util.logging.Logger;
 import static edu.touro.mco152.bm.App.dataDir;
 import static edu.touro.mco152.bm.App.msg;
 
-public class SwingImplementation extends SwingWorker<Boolean, DiskMark> implements InputsForBenchmark{
+public class SwingImplementation extends SwingWorker<Boolean, DiskMark> implements UIHandler {
 
     Boolean lastStatus = null;
     Callable callable;
@@ -138,6 +138,11 @@ public class SwingImplementation extends SwingWorker<Boolean, DiskMark> implemen
     }
 
     @Override
+    public void init() {
+        Gui.updateLegend();
+    }
+
+    @Override
     public void start() {
         setProperties();
         this.execute();
@@ -146,5 +151,10 @@ public class SwingImplementation extends SwingWorker<Boolean, DiskMark> implemen
     @Override
     public void cancel() {
         this.cancel(true);
+    }
+
+    @Override
+    public void showRun(DiskRun run) {
+        Gui.runPanel.addRun(run);
     }
 }
