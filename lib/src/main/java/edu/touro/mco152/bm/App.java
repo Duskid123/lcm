@@ -5,13 +5,12 @@ import edu.touro.mco152.bm.ui.Gui;
 import edu.touro.mco152.bm.ui.MainFrame;
 import edu.touro.mco152.bm.ui.SelectFrame;
 
-import javax.swing.SwingWorker.StateValue;
 import javax.swing.*;
 import javax.swing.UIManager.LookAndFeelInfo;
-import java.beans.PropertyChangeEvent;
 import java.io.*;
 import java.nio.file.Files;
 import java.util.Properties;
+import java.util.concurrent.Callable;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -49,6 +48,8 @@ public class App {
     public static int numOfBlocks = 32;     // desired number of blocks
     public static int blockSizeKb = 512;    // size of a block in KBs
     public static DiskWorker worker = null;
+
+    public static InputsForBenchmark BenchUi = null;
     public static int nextMarkNumber = 1;   // number of the next mark
     public static double wMax = -1, wMin = -1, wAvg = -1;
     public static double rMax = -1, rMin = -1, rAvg = -1;
@@ -243,7 +244,7 @@ public class App {
             msg("worker is null abort...");
             return;
         }
-        worker.cancel(true);
+        BenchUi.cancel();
     }
 
     /**
@@ -268,30 +269,16 @@ public class App {
         state = State.DISK_TEST_STATE;
         Gui.mainFrame.adjustSensitivity();
 
-        //4. set up disk worker thread and its event handlers
-        worker = new DiskWorker();
-        worker.addPropertyChangeListener((final PropertyChangeEvent event) -> {
-            switch (event.getPropertyName()) {
-                case "progress":
-                    int value = (Integer) event.getNewValue();
-                    Gui.progressBar.setValue(value);
-                    long kbProcessed = (value) * App.targetTxSizeKb() / 100;
-                    Gui.progressBar.setString(kbProcessed + " / " + App.targetTxSizeKb());
-                    break;
-                case "state":
-                    switch ((StateValue) event.getNewValue()) {
-                        case STARTED:
-                            Gui.progressBar.setString("0 / " + App.targetTxSizeKb());
-                            break;
-                        case DONE:
-                            break;
-                    } // end inner switch
-                    break;
-            }
-        });
+        //4. changed this to be able to be generic
+        InputsForBenchmark BenchUi = new SwingImplementation();
+
+        Callable<Boolean> c = new DiskWorker(BenchUi);
+
+        BenchUi.setCallable(c);
+
 
         //5. start the Swing worker thread
-        worker.execute();
+        BenchUi.start();
     }
 
     /**
