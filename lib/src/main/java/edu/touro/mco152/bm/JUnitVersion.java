@@ -43,7 +43,9 @@ public class JUnitVersion implements UIHandler {
 
     @Override
     public void handleProgress(int progress) {
-
+        if(progress <0 || progress > 100){
+            throw new IllegalArgumentException("The number you have given is either less than 0 or greater than 100");
+        }
     }
 
     @Override
@@ -81,8 +83,16 @@ public class JUnitVersion implements UIHandler {
 
     }
 
+    /**
+     * Added the failure mechanism to make the performance check test fail.
+     */
     @Override
     public void start() {
+        try {
+            Thread.sleep(5000);
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
         setProperties();
         futureTask = new FutureTask<>(callable);
         Thread thread = new Thread(futureTask);
