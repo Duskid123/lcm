@@ -27,9 +27,11 @@ class JUnitVersionTest {
 
     /**
      * I believe that this shows Existence that the code has ran which makes the laststatus as true.
+     * I believe that this also shows that things have to happen in order.
      */
     @Test
     void start() {
+        assertThrows(NullPointerException.class,()-> junit.lastStatus());
         junit.start();
         assertTrue(junit.lastStatus());
     }
@@ -42,6 +44,7 @@ class JUnitVersionTest {
     @ParameterizedTest
     @ValueSource(ints = {0, 99, 27 ,100})
     void CheckHandleProgress(int ints) {
+//        assertThrows()
         junit.start();
         verify(junit, atLeastOnce()).handleProgress(ints);
     }
