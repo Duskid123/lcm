@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="edu.touro.mco152.bm.UtilTest" tests="4" skipped="0" failures="0" errors="0" timestamp="2024-03-19T21:56:59" hostname="DAVE-LAPTOP" time="0.004">
+  <properties/>
+  <testcase name="[1] 1.002" classname="edu.touro.mco152.bm.UtilTest" time="0.002"/>
+  <testcase name="[2] 23.45" classname="edu.touro.mco152.bm.UtilTest" time="0.001"/>
+  <testcase name="[3] 55.0" classname="edu.touro.mco152.bm.UtilTest" time="0.001"/>
+  <testcase name="[4] 1.0" classname="edu.touro.mco152.bm.UtilTest" time="0.0"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

@@ -1,0 +1,273 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="edu.touro.mco152.bm.JUnitVersionTest" tests="7" skipped="0" failures="2" errors="0" timestamp="2024-03-19T21:56:30" hostname="DAVE-LAPTOP" time="28.842">
+  <properties/>
+  <testcase name="handleProgress()" classname="edu.touro.mco152.bm.JUnitVersionTest" time="0.041"/>
+  <testcase name="[1] 0" classname="edu.touro.mco152.bm.JUnitVersionTest" time="6.983"/>
+  <testcase name="[2] 99" classname="edu.touro.mco152.bm.JUnitVersionTest" time="5.45"/>
+  <testcase name="[3] 27" classname="edu.touro.mco152.bm.JUnitVersionTest" time="5.419"/>
+  <testcase name="[4] 100" classname="edu.touro.mco152.bm.JUnitVersionTest" time="5.449"/>
+  <testcase name="Time()" classname="edu.touro.mco152.bm.JUnitVersionTest" time="5.442">
+    <failure message="org.opentest4j.AssertionFailedError: expected: &lt;true&gt; but was: &lt;false&gt;" type="org.opentest4j.AssertionFailedError">org.opentest4j.AssertionFailedError: expected: &lt;true&gt; but was: &lt;false&gt;
+	at app//org.junit.jupiter.api.AssertionUtils.fail(AssertionUtils.java:55)
+	at app//org.junit.jupiter.api.AssertTrue.assertTrue(AssertTrue.java:40)
+	at app//org.junit.jupiter.api.AssertTrue.assertTrue(AssertTrue.java:35)
+	at app//org.junit.jupiter.api.Assertions.assertTrue(Assertions.java:179)
+	at app//edu.touro.mco152.bm.JUnitVersionTest.Time(JUnitVersionTest.java:65)
+	at java.base@17.0.4.1/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base@17.0.4.1/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base@17.0.4.1/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base@17.0.4.1/java.lang.reflect.Method.invoke(Method.java:568)
+	at app//org.junit.platform.commons.util.ReflectionUtils.invokeMethod(ReflectionUtils.java:725)
+	at app//org.junit.jupiter.engine.execution.MethodInvocation.proceed(MethodInvocation.java:60)
+	at app//org.junit.jupiter.engine.execution.InvocationInterceptorChain$ValidatingInvocation.proceed(InvocationInterceptorChain.java:131)
+	at app//org.junit.jupiter.engine.extension.TimeoutExtension.intercept(TimeoutExtension.java:149)
+	at app//org.junit.jupiter.engine.extension.TimeoutExtension.interceptTestableMethod(TimeoutExtension.java:140)
+	at app//org.junit.jupiter.engine.extension.TimeoutExtension.interceptTestMethod(TimeoutExtension.java:84)
+	at app//org.junit.jupiter.engine.execution.ExecutableInvoker$ReflectiveInterceptorCall.lambda$ofVoidMethod$0(ExecutableInvoker.java:115)
+	at app//org.junit.jupiter.engine.execution.ExecutableInvoker.lambda$invoke$0(ExecutableInvoker.java:105)
+	at app//org.junit.jupiter.engine.execution.InvocationInterceptorChain$InterceptedInvocation.proceed(InvocationInterceptorChain.java:106)
+	at app//org.junit.jupiter.engine.execution.InvocationInterceptorChain.proceed(InvocationInterceptorChain.java:64)
+	at app//org.junit.jupiter.engine.execution.InvocationInterceptorChain.chainAndInvoke(InvocationInterceptorChain.java:45)
+	at app//org.junit.jupiter.engine.execution.InvocationInterceptorChain.invoke(InvocationInterceptorChain.java:37)
+	at app//org.junit.jupiter.engine.execution.ExecutableInvoker.invoke(ExecutableInvoker.java:104)
+	at app//org.junit.jupiter.engine.execution.ExecutableInvoker.invoke(ExecutableInvoker.java:98)
+	at app//org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.lambda$invokeTestMethod$7(TestMethodTestDescriptor.java:214)
+	at app//org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at app//org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.invokeTestMethod(TestMethodTestDescriptor.java:210)
+	at app//org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.execute(TestMethodTestDescriptor.java:135)
+	at app//org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.execute(TestMethodTestDescriptor.java:66)
+	at app//org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$6(NodeTestTask.java:151)
+	at app//org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at app//org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:141)
+	at app//org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137)
+	at app//org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$9(NodeTestTask.java:139)
+	at app//org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at app//org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:138)
+	at app//org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:95)
+	at java.base@17.0.4.1/java.util.ArrayList.forEach(ArrayList.java:1511)
+	at app//org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.invokeAll(SameThreadHierarchicalTestExecutorService.java:41)
+	at app//org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$6(NodeTestTask.java:155)
+	at app//org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at app//org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:141)
+	at app//org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137)
+	at app//org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$9(NodeTestTask.java:139)
+	at app//org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at app//org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:138)
+	at app//org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:95)
+	at java.base@17.0.4.1/java.util.ArrayList.forEach(ArrayList.java:1511)
+	at app//org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.invokeAll(SameThreadHierarchicalTestExecutorService.java:41)
+	at app//org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$6(NodeTestTask.java:155)
+	at app//org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at app//org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:141)
+	at app//org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137)
+	at app//org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$9(NodeTestTask.java:139)
+	at app//org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at app//org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:138)
+	at app//org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:95)
+	at app//org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.submit(SameThreadHierarchicalTestExecutorService.java:35)
+	at app//org.junit.platform.engine.support.hierarchical.HierarchicalTestExecutor.execute(HierarchicalTestExecutor.java:57)
+	at app//org.junit.platform.engine.support.hierarchical.HierarchicalTestEngine.execute(HierarchicalTestEngine.java:54)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:108)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:88)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.lambda$execute$0(EngineExecutionOrchestrator.java:54)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.withInterceptedStreams(EngineExecutionOrchestrator.java:67)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:52)
+	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:96)
+	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:75)
+	at org.gradle.api.internal.tasks.testing.junitplatform.JUnitPlatformTestClassProcessor$CollectAllTestClassesExecutor.processAllTestClasses(JUnitPlatformTestClassProcessor.java:99)
+	at org.gradle.api.internal.tasks.testing.junitplatform.JUnitPlatformTestClassProcessor$CollectAllTestClassesExecutor.access$000(JUnitPlatformTestClassProcessor.java:79)
+	at org.gradle.api.internal.tasks.testing.junitplatform.JUnitPlatformTestClassProcessor.stop(JUnitPlatformTestClassProcessor.java:75)
+	at org.gradle.api.internal.tasks.testing.SuiteTestClassProcessor.stop(SuiteTestClassProcessor.java:61)
+	at java.base@17.0.4.1/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base@17.0.4.1/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base@17.0.4.1/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base@17.0.4.1/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.gradle.internal.dispatch.ReflectionDispatch.dispatch(ReflectionDispatch.java:36)
+	at org.gradle.internal.dispatch.ReflectionDispatch.dispatch(ReflectionDispatch.java:24)
+	at org.gradle.internal.dispatch.ContextClassLoaderDispatch.dispatch(ContextClassLoaderDispatch.java:33)
+	at org.gradle.internal.dispatch.ProxyDispatchAdapter$DispatchingInvocationHandler.invoke(ProxyDispatchAdapter.java:94)
+	at jdk.proxy1/jdk.proxy1.$Proxy2.stop(Unknown Source)
+	at org.gradle.api.internal.tasks.testing.worker.TestWorker$3.run(TestWorker.java:193)
+	at org.gradle.api.internal.tasks.testing.worker.TestWorker.executeAndMaintainThreadName(TestWorker.java:129)
+	at org.gradle.api.internal.tasks.testing.worker.TestWorker.execute(TestWorker.java:100)
+	at org.gradle.api.internal.tasks.testing.worker.TestWorker.execute(TestWorker.java:60)
+	at org.gradle.process.internal.worker.child.ActionExecutionWorker.execute(ActionExecutionWorker.java:56)
+	at org.gradle.process.internal.worker.child.SystemApplicationClassLoaderWorker.call(SystemApplicationClassLoaderWorker.java:133)
+	at org.gradle.process.internal.worker.child.SystemApplicationClassLoaderWorker.call(SystemApplicationClassLoaderWorker.java:71)
+	at app//worker.org.gradle.process.internal.worker.GradleWorkerMain.run(GradleWorkerMain.java:69)
+	at app//worker.org.gradle.process.internal.worker.GradleWorkerMain.main(GradleWorkerMain.java:74)
+</failure>
+  </testcase>
+  <testcase name="start()" classname="edu.touro.mco152.bm.JUnitVersionTest" time="0.001">
+    <failure message="org.opentest4j.AssertionFailedError: Expected java.lang.NullPointerException to be thrown, but nothing was thrown." type="org.opentest4j.AssertionFailedError">org.opentest4j.AssertionFailedError: Expected java.lang.NullPointerException to be thrown, but nothing was thrown.
+	at app//org.junit.jupiter.api.AssertThrows.assertThrows(AssertThrows.java:71)
+	at app//org.junit.jupiter.api.AssertThrows.assertThrows(AssertThrows.java:37)
+	at app//org.junit.jupiter.api.Assertions.assertThrows(Assertions.java:3082)
+	at app//edu.touro.mco152.bm.JUnitVersionTest.start(JUnitVersionTest.java:34)
+	at java.base@17.0.4.1/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base@17.0.4.1/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base@17.0.4.1/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base@17.0.4.1/java.lang.reflect.Method.invoke(Method.java:568)
+	at app//org.junit.platform.commons.util.ReflectionUtils.invokeMethod(ReflectionUtils.java:725)
+	at app//org.junit.jupiter.engine.execution.MethodInvocation.proceed(MethodInvocation.java:60)
+	at app//org.junit.jupiter.engine.execution.InvocationInterceptorChain$ValidatingInvocation.proceed(InvocationInterceptorChain.java:131)
+	at app//org.junit.jupiter.engine.extension.TimeoutExtension.intercept(TimeoutExtension.java:149)
+	at app//org.junit.jupiter.engine.extension.TimeoutExtension.interceptTestableMethod(TimeoutExtension.java:140)
+	at app//org.junit.jupiter.engine.extension.TimeoutExtension.interceptTestMethod(TimeoutExtension.java:84)
+	at app//org.junit.jupiter.engine.execution.ExecutableInvoker$ReflectiveInterceptorCall.lambda$ofVoidMethod$0(ExecutableInvoker.java:115)
+	at app//org.junit.jupiter.engine.execution.ExecutableInvoker.lambda$invoke$0(ExecutableInvoker.java:105)
+	at app//org.junit.jupiter.engine.execution.InvocationInterceptorChain$InterceptedInvocation.proceed(InvocationInterceptorChain.java:106)
+	at app//org.junit.jupiter.engine.execution.InvocationInterceptorChain.proceed(InvocationInterceptorChain.java:64)
+	at app//org.junit.jupiter.engine.execution.InvocationInterceptorChain.chainAndInvoke(InvocationInterceptorChain.java:45)
+	at app//org.junit.jupiter.engine.execution.InvocationInterceptorChain.invoke(InvocationInterceptorChain.java:37)
+	at app//org.junit.jupiter.engine.execution.ExecutableInvoker.invoke(ExecutableInvoker.java:104)
+	at app//org.junit.jupiter.engine.execution.ExecutableInvoker.invoke(ExecutableInvoker.java:98)
+	at app//org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.lambda$invokeTestMethod$7(TestMethodTestDescriptor.java:214)
+	at app//org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at app//org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.invokeTestMethod(TestMethodTestDescriptor.java:210)
+	at app//org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.execute(TestMethodTestDescriptor.java:135)
+	at app//org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.execute(TestMethodTestDescriptor.java:66)
+	at app//org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$6(NodeTestTask.java:151)
+	at app//org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at app//org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:141)
+	at app//org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137)
+	at app//org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$9(NodeTestTask.java:139)
+	at app//org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at app//org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:138)
+	at app//org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:95)
+	at java.base@17.0.4.1/java.util.ArrayList.forEach(ArrayList.java:1511)
+	at app//org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.invokeAll(SameThreadHierarchicalTestExecutorService.java:41)
+	at app//org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$6(NodeTestTask.java:155)
+	at app//org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at app//org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:141)
+	at app//org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137)
+	at app//org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$9(NodeTestTask.java:139)
+	at app//org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at app//org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:138)
+	at app//org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:95)
+	at java.base@17.0.4.1/java.util.ArrayList.forEach(ArrayList.java:1511)
+	at app//org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.invokeAll(SameThreadHierarchicalTestExecutorService.java:41)
+	at app//org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$6(NodeTestTask.java:155)
+	at app//org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at app//org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:141)
+	at app//org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137)
+	at app//org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$9(NodeTestTask.java:139)
+	at app//org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at app//org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:138)
+	at app//org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:95)
+	at app//org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.submit(SameThreadHierarchicalTestExecutorService.java:35)
+	at app//org.junit.platform.engine.support.hierarchical.HierarchicalTestExecutor.execute(HierarchicalTestExecutor.java:57)
+	at app//org.junit.platform.engine.support.hierarchical.HierarchicalTestEngine.execute(HierarchicalTestEngine.java:54)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:108)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:88)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.lambda$execute$0(EngineExecutionOrchestrator.java:54)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.withInterceptedStreams(EngineExecutionOrchestrator.java:67)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:52)
+	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:96)
+	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:75)
+	at org.gradle.api.internal.tasks.testing.junitplatform.JUnitPlatformTestClassProcessor$CollectAllTestClassesExecutor.processAllTestClasses(JUnitPlatformTestClassProcessor.java:99)
+	at org.gradle.api.internal.tasks.testing.junitplatform.JUnitPlatformTestClassProcessor$CollectAllTestClassesExecutor.access$000(JUnitPlatformTestClassProcessor.java:79)
+	at org.gradle.api.internal.tasks.testing.junitplatform.JUnitPlatformTestClassProcessor.stop(JUnitPlatformTestClassProcessor.java:75)
+	at org.gradle.api.internal.tasks.testing.SuiteTestClassProcessor.stop(SuiteTestClassProcessor.java:61)
+	at java.base@17.0.4.1/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base@17.0.4.1/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base@17.0.4.1/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base@17.0.4.1/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.gradle.internal.dispatch.ReflectionDispatch.dispatch(ReflectionDispatch.java:36)
+	at org.gradle.internal.dispatch.ReflectionDispatch.dispatch(ReflectionDispatch.java:24)
+	at org.gradle.internal.dispatch.ContextClassLoaderDispatch.dispatch(ContextClassLoaderDispatch.java:33)
+	at org.gradle.internal.dispatch.ProxyDispatchAdapter$DispatchingInvocationHandler.invoke(ProxyDispatchAdapter.java:94)
+	at jdk.proxy1/jdk.proxy1.$Proxy2.stop(Unknown Source)
+	at org.gradle.api.internal.tasks.testing.worker.TestWorker$3.run(TestWorker.java:193)
+	at org.gradle.api.internal.tasks.testing.worker.TestWorker.executeAndMaintainThreadName(TestWorker.java:129)
+	at org.gradle.api.internal.tasks.testing.worker.TestWorker.execute(TestWorker.java:100)
+	at org.gradle.api.internal.tasks.testing.worker.TestWorker.execute(TestWorker.java:60)
+	at org.gradle.process.internal.worker.child.ActionExecutionWorker.execute(ActionExecutionWorker.java:56)
+	at org.gradle.process.internal.worker.child.SystemApplicationClassLoaderWorker.call(SystemApplicationClassLoaderWorker.java:133)
+	at org.gradle.process.internal.worker.child.SystemApplicationClassLoaderWorker.call(SystemApplicationClassLoaderWorker.java:71)
+	at app//worker.org.gradle.process.internal.worker.GradleWorkerMain.run(GradleWorkerMain.java:69)
+	at app//worker.org.gradle.process.internal.worker.GradleWorkerMain.main(GradleWorkerMain.java:74)
+</failure>
+  </testcase>
+  <system-out><![CDATA[os: Windows 11
+Windows PowerShell
+Copyright (C) Microsoft Corporation. All rights reserved.
+
+Install the latest PowerShell for new features and improvements! https://aka.ms/PSWindows
+
+[EL Fine]: server: 2024-03-19 17:56:37.079--Thread(Thread[Thread-3,5,main])--Configured server platform: org.eclipse.persistence.platform.server.NoServerPlatform
+[EL Config]: metadata: 2024-03-19 17:56:37.19--ServerSession(1108014812)--Thread(Thread[Thread-3,5,main])--The access type for the persistent class [class edu.touro.mco152.bm.persist.DiskRun] is set to [FIELD].
+[EL Config]: metadata: 2024-03-19 17:56:37.207--ServerSession(1108014812)--Thread(Thread[Thread-3,5,main])--The alias name for the entity class [class edu.touro.mco152.bm.persist.DiskRun] is being defaulted to: DiskRun.
+[EL Config]: metadata: 2024-03-19 17:56:37.214--ServerSession(1108014812)--Thread(Thread[Thread-3,5,main])--The column name for element [ioMode] is being defaulted to: IOMODE.
+[EL Config]: metadata: 2024-03-19 17:56:37.216--ServerSession(1108014812)--Thread(Thread[Thread-3,5,main])--The column name for element [numMarks] is being defaulted to: NUMMARKS.
+[EL Config]: metadata: 2024-03-19 17:56:37.217--ServerSession(1108014812)--Thread(Thread[Thread-3,5,main])--The column name for element [runMin] is being defaulted to: RUNMIN.
+[EL Config]: metadata: 2024-03-19 17:56:37.217--ServerSession(1108014812)--Thread(Thread[Thread-3,5,main])--The column name for element [runAvg] is being defaulted to: RUNAVG.
+[EL Config]: metadata: 2024-03-19 17:56:37.217--ServerSession(1108014812)--Thread(Thread[Thread-3,5,main])--The column name for element [diskInfo] is being defaulted to: DISKINFO.
+[EL Config]: metadata: 2024-03-19 17:56:37.218--ServerSession(1108014812)--Thread(Thread[Thread-3,5,main])--The column name for element [totalMarks] is being defaulted to: TOTALMARKS.
+[EL Config]: metadata: 2024-03-19 17:56:37.218--ServerSession(1108014812)--Thread(Thread[Thread-3,5,main])--The column name for element [blockOrder] is being defaulted to: BLOCKORDER.
+[EL Config]: metadata: 2024-03-19 17:56:37.218--ServerSession(1108014812)--Thread(Thread[Thread-3,5,main])--The column name for element [blockSize] is being defaulted to: BLOCKSIZE.
+[EL Config]: metadata: 2024-03-19 17:56:37.218--ServerSession(1108014812)--Thread(Thread[Thread-3,5,main])--The column name for element [txSize] is being defaulted to: TXSIZE.
+[EL Config]: metadata: 2024-03-19 17:56:37.218--ServerSession(1108014812)--Thread(Thread[Thread-3,5,main])--The column name for element [numBlocks] is being defaulted to: NUMBLOCKS.
+[EL Config]: metadata: 2024-03-19 17:56:37.219--ServerSession(1108014812)--Thread(Thread[Thread-3,5,main])--The column name for element [runMax] is being defaulted to: RUNMAX.
+[EL Config]: metadata: 2024-03-19 17:56:37.219--ServerSession(1108014812)--Thread(Thread[Thread-3,5,main])--The column name for element [startTime] is being defaulted to: STARTTIME.
+[EL Config]: metadata: 2024-03-19 17:56:37.219--ServerSession(1108014812)--Thread(Thread[Thread-3,5,main])--The column name for element [id] is being defaulted to: ID.
+[EL Config]: metadata: 2024-03-19 17:56:37.22--ServerSession(1108014812)--Thread(Thread[Thread-3,5,main])--The column name for element [endTime] is being defaulted to: ENDTIME.
+[EL Info]: 2024-03-19 17:56:37.306--ServerSession(1108014812)--Thread(Thread[Thread-3,5,main])--EclipseLink, version: Eclipse Persistence Services - 4.0.2.v202306161219
+[EL Fine]: connection: 2024-03-19 17:56:37.541--Thread(Thread[Thread-3,5,main])--Detected database platform: org.eclipse.persistence.platform.database.JavaDBPlatform
+[EL Fine]: connection: 2024-03-19 17:56:37.553--ServerSession(1108014812)--Connection(1709759218)--Thread(Thread[Thread-3,5,main])--connecting(DatabaseLogin(
+	platform=>JavaDBPlatform
+	user name=> ""
+	datasource URL=> "jdbc:derby:derbyDB;create=true"
+))
+[EL Config]: connection: 2024-03-19 17:56:37.555--ServerSession(1108014812)--Connection(194925536)--Thread(Thread[Thread-3,5,main])--Connected: jdbc:derby:derbyDB
+	User: APP
+	Database: Apache Derby  Version: 10.15.2.0 - (1873585)
+	Driver: Apache Derby Embedded JDBC Driver  Version: 10.15.2.0 - (1873585)
+[EL Fine]: connection: 2024-03-19 17:56:37.602--ServerSession(1108014812)--Thread(Thread[Thread-3,5,main])--/file:/C:/Program Files/Git/lcmbadbm/lib/build/classes/java/main/_jDiskMarkPU login successful
+[EL Fine]: sql: 2024-03-19 17:56:37.753--ClientSession(695958444)--Connection(194925536)--Thread(Thread[Thread-3,5,main])--INSERT INTO DiskRun (BLOCKORDER, BLOCKSIZE, DISKINFO, ENDTIME, IOMODE, NUMBLOCKS, NUMMARKS, RUNAVG, RUNMAX, RUNMIN, STARTTIME, TOTALMARKS, TXSIZE) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+	bind => [0, 512, Unknown-Drive-Model for: C, 2024-03-19 17:56:36.942, 1, 32, 25, 1179.0743361582659, 1408.277148942912, 844.661475518015, 2024-03-19 17:56:36.51, 0, 409600]
+os: Windows 11
+Windows PowerShell
+Copyright (C) Microsoft Corporation. All rights reserved.
+
+Install the latest PowerShell for new features and improvements! https://aka.ms/PSWindows
+
+[EL Fine]: sql: 2024-03-19 17:56:43.244--ClientSession(695958444)--Connection(194925536)--Thread(Thread[Thread-5,5,main])--INSERT INTO DiskRun (BLOCKORDER, BLOCKSIZE, DISKINFO, ENDTIME, IOMODE, NUMBLOCKS, NUMMARKS, RUNAVG, RUNMAX, RUNMIN, STARTTIME, TOTALMARKS, TXSIZE) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+	bind => [0, 512, Unknown-Drive-Model for: C, 2024-03-19 17:56:43.244, 1, 32, 25, 1273.270996173766, 1424.0323255337896, 1000.7756010908454, 2024-03-19 17:56:42.843, 0, 409600]
+os: Windows 11
+Windows PowerShell
+Copyright (C) Microsoft Corporation. All rights reserved.
+
+Install the latest PowerShell for new features and improvements! https://aka.ms/PSWindows
+
+[EL Fine]: sql: 2024-03-19 17:56:48.664--ClientSession(695958444)--Connection(194925536)--Thread(Thread[Thread-6,5,main])--INSERT INTO DiskRun (BLOCKORDER, BLOCKSIZE, DISKINFO, ENDTIME, IOMODE, NUMBLOCKS, NUMMARKS, RUNAVG, RUNMAX, RUNMIN, STARTTIME, TOTALMARKS, TXSIZE) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+	bind => [0, 512, Unknown-Drive-Model for: C, 2024-03-19 17:56:48.663, 1, 32, 25, 1321.0043920068579, 1467.916842510872, 1168.7619158929706, 2024-03-19 17:56:48.281, 0, 409600]
+os: Windows 11
+Windows PowerShell
+Copyright (C) Microsoft Corporation. All rights reserved.
+
+Install the latest PowerShell for new features and improvements! https://aka.ms/PSWindows
+
+[EL Fine]: sql: 2024-03-19 17:56:54.109--ClientSession(695958444)--Connection(194925536)--Thread(Thread[Thread-7,5,main])--INSERT INTO DiskRun (BLOCKORDER, BLOCKSIZE, DISKINFO, ENDTIME, IOMODE, NUMBLOCKS, NUMMARKS, RUNAVG, RUNMAX, RUNMIN, STARTTIME, TOTALMARKS, TXSIZE) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+	bind => [0, 512, Unknown-Drive-Model for: C, 2024-03-19 17:56:54.108, 1, 32, 25, 1223.1958520700166, 1394.8825247373697, 1003.9719640829029, 2024-03-19 17:56:53.703, 0, 409600]
+os: Windows 11
+Windows PowerShell
+Copyright (C) Microsoft Corporation. All rights reserved.
+
+Install the latest PowerShell for new features and improvements! https://aka.ms/PSWindows
+
+[EL Fine]: sql: 2024-03-19 17:56:59.554--ClientSession(695958444)--Connection(194925536)--Thread(Thread[Thread-8,5,main])--INSERT INTO DiskRun (BLOCKORDER, BLOCKSIZE, DISKINFO, ENDTIME, IOMODE, NUMBLOCKS, NUMMARKS, RUNAVG, RUNMAX, RUNMIN, STARTTIME, TOTALMARKS, TXSIZE) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+	bind => [0, 512, Unknown-Drive-Model for: C, 2024-03-19 17:56:59.554, 1, 32, 25, 1296.7564215918185, 1385.653292225619, 1107.0212824841558, 2024-03-19 17:56:59.157, 0, 409600]
+]]></system-out>
+  <system-err><![CDATA[Mar 19, 2024 5:56:36 PM edu.touro.mco152.bm.DiskWorker call
+INFO: *** New worker thread started ***
+Mar 19, 2024 5:56:42 PM edu.touro.mco152.bm.DiskWorker call
+INFO: *** New worker thread started ***
+Mar 19, 2024 5:56:48 PM edu.touro.mco152.bm.DiskWorker call
+INFO: *** New worker thread started ***
+Mar 19, 2024 5:56:53 PM edu.touro.mco152.bm.DiskWorker call
+INFO: *** New worker thread started ***
+Mar 19, 2024 5:56:59 PM edu.touro.mco152.bm.DiskWorker call
+INFO: *** New worker thread started ***
+]]></system-err>
+</testsuite>
