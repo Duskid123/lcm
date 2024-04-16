@@ -20,14 +20,13 @@ public class test {
 
         junit.start();
 
-        assertTrue(junit.lastStatus());
     }
 
     @Test
     void CheckHandleProgress() {
         UIHandler junit = spy(JUnitVersion.class);
 
-        Callable c = new DiskWorker(junit);
+        DiskWorker c = new DiskWorker(junit);
 
         junit.setCallable(c);
 
@@ -35,7 +34,7 @@ public class test {
 
         verify(junit, atLeastOnce()).start();
 
-        assertTrue(junit.lastStatus());
+        assertTrue(c.getLastStatus());
 
         // shows that the handle progress method will be called from 0-100 percent.
         for(int i=0; i<=100; i++){

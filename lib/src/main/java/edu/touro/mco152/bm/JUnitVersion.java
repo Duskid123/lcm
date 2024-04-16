@@ -20,21 +20,12 @@ public class JUnitVersion implements UIHandler {
 
     FutureTask<Boolean> futureTask;
     Callable<Boolean> callable;
-    @Override
-    public boolean IsCancelled() {
-        return futureTask.isCancelled();
-    }
 
     @Override
     public void setCallable(Callable callable) {
         this.callable = callable;
     }
 
-    @Override
-    public boolean lastStatus() {
-        lastStatus = futureTask.isDone();
-        return lastStatus;
-    }
 
     @Override
     public void handleMark(DiskMark Mark) {

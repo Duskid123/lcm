@@ -21,15 +21,7 @@ public class SwingImplementation extends SwingWorker<Boolean, DiskMark> implemen
         this.callable = callable;
     }
 
-    @Override
-    public boolean IsCancelled() {
-        return isCancelled();
-    }
 
-    @Override
-    public boolean lastStatus() {
-        return lastStatus;
-    }
 
     @Override
     public void handleMark(DiskMark Mark) {
@@ -151,6 +143,7 @@ public class SwingImplementation extends SwingWorker<Boolean, DiskMark> implemen
     @Override
     public void cancel() {
         this.cancel(true);
+
     }
 
     @Override

@@ -11,11 +11,11 @@ import java.util.concurrent.Callable;
 
 public interface UIHandler {
 
-    boolean IsCancelled();
+
 
     void setCallable(Callable callable);
 
-    boolean lastStatus();
+
     void handleMark(DiskMark Mark);
     void handleProgress(int progress);
 
