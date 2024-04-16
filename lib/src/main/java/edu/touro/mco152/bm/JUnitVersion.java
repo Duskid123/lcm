@@ -34,7 +34,9 @@ public class JUnitVersion implements UIHandler {
 
     @Override
     public void handleProgress(int progress) {
-
+        if (progress < 0 || progress > 100) {
+            throw new IllegalArgumentException();
+        }
     }
 
     @Override
