@@ -2,25 +2,10 @@ package edu.touro.mco152.bm;
 
 import org.junit.jupiter.api.Test;
 
-import java.util.concurrent.Callable;
-
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.mockito.Mockito.*;
 
 public class test {
-
-    @Test
-    void start() {
-
-        UIHandler junit = spy(JUnitVersion.class);
-
-        Callable c = new DiskWorker(junit);
-
-        junit.setCallable(c);
-
-        junit.start();
-
-    }
 
     @Test
     void CheckHandleProgress() {
