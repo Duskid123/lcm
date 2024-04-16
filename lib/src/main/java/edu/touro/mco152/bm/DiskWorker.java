@@ -45,13 +45,24 @@ public class DiskWorker implements Callable<Boolean>{
 
     UIHandler inputsForBenchmark = null;
 
+    private boolean isCancelled = false;
+
     public DiskWorker(UIHandler inputsForBenchmark){
         this.inputsForBenchmark = inputsForBenchmark;
+    }
+
+/*    public boolean isCancelled() {
+        return isCancelled;
+    }*/
+
+    public void cancel(){
+        this.isCancelled = true;
     }
 
 
     @Override
     public Boolean call() throws Exception {
+        this.isCancelled = false;
 
         /*
           We 'got here' because: 1: End-user clicked 'Start' on the benchmark UI,
@@ -117,7 +128,7 @@ public class DiskWorker implements Callable<Boolean>{
               that keeps writing data (in its own loop - for specified # of blocks). Each 'Mark' is timed
               and is reported to the GUI for display as each Mark completes.
              */
-            for (int m = startFileNum; m < startFileNum + App.numOfMarks && !inputsForBenchmark.IsCancelled(); m++) {
+            for (int m = startFileNum; m < startFileNum + App.numOfMarks && !isCancelled; m++) {
 
                 if (App.multiFile) {
                     testFile = new File(dataDir.getAbsolutePath()
@@ -156,6 +167,7 @@ public class DiskWorker implements Callable<Boolean>{
                     }
                 } catch (IOException ex) {
                     Logger.getLogger(App.class.getName()).log(Level.SEVERE, null, ex);
+                    lastStatus = false;
                 }
 
                 /*
@@ -201,7 +213,7 @@ public class DiskWorker implements Callable<Boolean>{
          */
 
         // try renaming all files to clear catch
-        if (App.readTest && App.writeTest && !inputsForBenchmark.IsCancelled()) {
+        if (App.readTest && App.writeTest && !isCancelled) {
             inputsForBenchmark.showMessage("""
                             For valid READ measurements please clear the disk cache by
                             using the included RAMMap.exe or flushmem.exe utilities.
@@ -219,13 +231,14 @@ public class DiskWorker implements Callable<Boolean>{
             run.setTxSize(App.targetTxSizeKb());
             run.setDiskInfo(Util.getDiskInfo(dataDir));
 
+
             msg("disk info: (" + run.getDiskInfo() + ")");
 
             Gui.chartPanel.getChart().getTitle().setVisible(true);
             Gui.chartPanel.getChart().getTitle().setText(run.getDiskInfo());
 
-            for (int m = startFileNum; m < startFileNum + App.numOfMarks && !inputsForBenchmark.IsCancelled(); m++) {
 
+            for (int m = startFileNum; m < startFileNum + App.numOfMarks && !isCancelled; m++) {
                 if (App.multiFile) {
                     testFile = new File(dataDir.getAbsolutePath()
                             + File.separator + "testdata" + m + ".jdm");
@@ -234,6 +247,7 @@ public class DiskWorker implements Callable<Boolean>{
                 rMark.setMarkNum(m);
                 long startTime = System.nanoTime();
                 long totalBytesReadInMark = 0;
+
 
                 try {
                     try (RandomAccessFile rAccFile = new RandomAccessFile(testFile, "r")) {
@@ -258,6 +272,7 @@ public class DiskWorker implements Callable<Boolean>{
                             ex.getMessage();
                     inputsForBenchmark.showMessage(emsg, "Unable to READ", JOptionPane.ERROR_MESSAGE);
                     inputsForBenchmark.handleMessage(emsg);
+                    lastStatus = false;
                     return false;
                 }
                 long endTime = System.nanoTime();
@@ -288,13 +303,14 @@ public class DiskWorker implements Callable<Boolean>{
             inputsForBenchmark.addRun(run);
         }
         App.nextMarkNumber += App.numOfMarks;
+        lastStatus = true;
         return true;
     }
 
 
 
     public Boolean getLastStatus() {
-        return inputsForBenchmark.lastStatus();
+        return lastStatus;
     }
 
 }

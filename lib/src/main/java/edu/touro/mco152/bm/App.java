@@ -10,7 +10,6 @@ import javax.swing.UIManager.LookAndFeelInfo;
 import java.io.*;
 import java.nio.file.Files;
 import java.util.Properties;
-import java.util.concurrent.Callable;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -244,7 +243,7 @@ public class App {
             msg("worker is null abort...");
             return;
         }
-        BenchUi.cancel();
+        worker.cancel();
     }
 
     /**
@@ -272,9 +271,9 @@ public class App {
         //4. changed this to be able to be generic
         UIHandler BenchUi = new SwingImplementation();
 
-        Callable<Boolean> c = new DiskWorker(BenchUi);
+        worker = new DiskWorker(BenchUi);
 
-        BenchUi.setCallable(c);
+        BenchUi.setCallable(worker);
 
 
         //5. start the Swing worker thread
