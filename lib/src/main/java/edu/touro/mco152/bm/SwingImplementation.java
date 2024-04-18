@@ -26,6 +26,7 @@ public class SwingImplementation extends SwingWorker<Boolean, DiskMark> implemen
     @Override
     public void handleMark(DiskMark Mark) {
         publish(Mark);
+        App.updateMetrics(Mark);
     }
 
     @Override
