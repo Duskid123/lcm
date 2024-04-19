@@ -23,7 +23,6 @@ public class JUnitVersion implements UIHandler {
 
     @Override
     public void setCallable(Callable callable) {
-        setProperties();
         this.callable = callable;
     }
 
@@ -75,6 +74,7 @@ public class JUnitVersion implements UIHandler {
 
     @Override
     public void start() {
+        setProperties();
         futureTask = new FutureTask<>(callable);
         Thread thread = new Thread(futureTask);
         thread.start();
