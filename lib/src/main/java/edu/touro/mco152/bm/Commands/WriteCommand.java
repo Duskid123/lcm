@@ -25,7 +25,7 @@ public class WriteCommand implements Command{
     boolean isCancelled = false;
 
     /**
-     * this enables
+     * this enables the command to be cancelled.
      */
     @Override
     public void cancel() {
@@ -104,7 +104,7 @@ public class WriteCommand implements Command{
                         totalBytesWrittenInMark += blockSize;
                         wUnitsComplete++;
                         unitsComplete = wUnitsComplete;
-                        percentComplete = (float) unitsComplete / (float) wUnitsTotal * 100f;
+                        percentComplete = (float) unitsComplete / (float) parameters.getTotalUnits()  * 100f;
 
                             /*
                               Report to interface what percentage level of Entire BM (#Marks * #Blocks) is done.

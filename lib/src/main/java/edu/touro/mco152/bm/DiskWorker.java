@@ -74,32 +74,38 @@ public class DiskWorker implements Callable<Boolean>{
 
         inputsForBenchmark.init();  // init chart legend info
 
+
         int startFileNum = App.nextMarkNumber;
 
         if (App.autoReset) {
             App.resetTestData();
             Gui.resetTestData();
         }
+        int totalUnits = 0;
+        if(writeTest){
+            totalUnits += App.numOfMarks*App.numOfBlocks;
+        }
+        if(readTest){
+            totalUnits += App.numOfMarks*App.numOfBlocks;
+        }
+
+        // set up the parameters for the command.
+        Parameters params = new Parameters(multiFile, inputsForBenchmark, startFileNum,
+                numOfMarks, numOfBlocks, blockSizeKb, totalUnits, App.blockSequence);
 
         /*
           The GUI allows a Write, Read, or both types of BMs to be started. They are done serially.
          */
         if (App.writeTest && !isCancelled) {
+            // this sets the type of command to be executed.
             currentCommand = new WriteCommand();
-            Parameters params = new Parameters(multiFile, inputsForBenchmark, startFileNum, numOfMarks, numOfBlocks, blockSizeKb, App.blockSequence);
+
             if(!Invoker.execute(currentCommand, params)){
                 lastStatus = false;
                 return false;
             }
         }
 
-        /*
-          Most benchmarking systems will try to do some cleanup in between 2 benchmark operations to
-          make it more 'fair'. For example a networking benchmark might close and re-open sockets,
-          a memory benchmark might clear or invalidate the Op Systems TLB or other caches, etc.
-         */
-
-        // try renaming all files to clear catch
         if (App.readTest && App.writeTest && !isCancelled) {
 
             inputsForBenchmark.showMessage("""
@@ -112,8 +118,8 @@ public class DiskWorker implements Callable<Boolean>{
 
         // Same as above, just for Read operations instead of Writes.
         if (App.readTest && !isCancelled) {
+            // this sets the type of command to be executed.
             currentCommand = new ReadCommand();
-            Parameters params = new Parameters(App.multiFile, inputsForBenchmark,startFileNum, numOfMarks, numOfBlocks, blockSizeKb, App.blockSequence);
             if(!Invoker.execute(currentCommand, params)){
                 lastStatus = false;
                 return false;

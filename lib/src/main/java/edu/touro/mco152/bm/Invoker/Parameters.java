@@ -32,8 +32,9 @@ public class Parameters {
         return blockSizeKb;
     }
 
-
-
+    public int getTotalUnits() {
+        return totalUnits;
+    }
     public DiskRun.BlockSequence getBlockOrder() {
         return blockOrder;
     }
@@ -41,12 +42,21 @@ public class Parameters {
     boolean isMultiple;
 
     UIHandler uiHandler;
-    int startNumFile, numOfMarks, numOfBlocks, blockSizeKb;
+    int startNumFile;
+    int numOfMarks;
+    int numOfBlocks;
+    int blockSizeKb;
+
     DiskRun.BlockSequence blockOrder;
+
+    int totalUnits;
+
+
 
     public Parameters(boolean isMultiple, UIHandler uiHandler,
                       int startNumFile, int numOfMarks,
                       int numOfBlocks, int blockSizeKb,
+
                       DiskRun.BlockSequence blockOrder){
         this.isMultiple = isMultiple;
         this.uiHandler = uiHandler;
@@ -55,7 +65,20 @@ public class Parameters {
         this.numOfBlocks = numOfBlocks;
         this.blockSizeKb = blockSizeKb;
         this.blockOrder = blockOrder;
-
+        this.totalUnits = numOfBlocks * numOfMarks;
     }
 
+    public Parameters(boolean isMultiple, UIHandler uiHandler,
+                      int startNumFile, int numOfMarks,
+                      int numOfBlocks, int blockSizeKb,
+                      int totalUnits, DiskRun.BlockSequence blockOrder){
+        this.isMultiple = isMultiple;
+        this.uiHandler = uiHandler;
+        this.startNumFile = startNumFile;
+        this.numOfMarks = numOfMarks;
+        this.numOfBlocks = numOfBlocks;
+        this.blockSizeKb = blockSizeKb;
+        this.blockOrder = blockOrder;
+        this.totalUnits = totalUnits;
+    }
 }

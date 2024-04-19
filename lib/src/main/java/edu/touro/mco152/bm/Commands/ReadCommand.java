@@ -53,7 +53,7 @@ public class ReadCommand implements Command{
          */
         int rUnitsComplete = 0, unitsComplete;
 
-        int rUnitsTotal = parameters.getNumOfBlocks() * parameters.getNumOfMarks();
+        int rUnitsTotal = numOfBlocks * numOfMarks;
 
         float percentComplete;
 
@@ -96,7 +96,7 @@ public class ReadCommand implements Command{
             try {
                 try (RandomAccessFile rAccFile = new RandomAccessFile(testFile, "r")) {
                     for (int b = 0; b < numOfBlocks; b++) {
-                        if (parameters.getBlockOrder() == DiskRun.BlockSequence.RANDOM) {
+                        if (blockSequence == DiskRun.BlockSequence.RANDOM) {
                             int rLoc = Util.randInt(0, numOfBlocks - 1);
                             rAccFile.seek((long) rLoc * blockSize);
                         } else {
@@ -106,7 +106,7 @@ public class ReadCommand implements Command{
                         totalBytesReadInMark += blockSize;
                         rUnitsComplete++;
                         unitsComplete = rUnitsComplete;
-                        percentComplete = (float) unitsComplete / (float) rUnitsTotal * 100f;
+                        percentComplete = (float) unitsComplete / (float) parameters.getTotalUnits() * 100f;
                         uiHandler.handleProgress((int) percentComplete);
                     }
                 }
