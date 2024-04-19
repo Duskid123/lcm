@@ -8,9 +8,8 @@ import edu.touro.mco152.bm.Invoker.Parameters;
 public interface Command {
     /**
      * execute the command
-     *
      * @param parameters
-     * @return
+     * @return true if the command executed successfully and false otherwise.
      */
     public boolean execute(Parameters parameters);
 
