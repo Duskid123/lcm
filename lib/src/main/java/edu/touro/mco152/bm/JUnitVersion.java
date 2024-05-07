@@ -14,7 +14,7 @@ import java.util.concurrent.FutureTask;
  * not 100% sure about the current
  */
 
-public class JUnitVersion2 implements UIHandler {
+public class JUnitVersion implements UIHandler {
 
     boolean lastStatus = false;
 

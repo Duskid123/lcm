@@ -9,13 +9,13 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.mockito.Mockito.*;
 
-class JUnitVersion2Test {
+class JUnitVersionTest {
     static UIHandler junit;
     static DiskWorker c;
 
     @BeforeAll
     public static void setup(){
-        junit = spy(JUnitVersion2.class);
+        junit = spy(JUnitVersion.class);
 
         c = new DiskWorker(junit);
 
