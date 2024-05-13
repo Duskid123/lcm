@@ -1,10 +1,12 @@
 package edu.touro.mco152.bm;
 
+import Observer.ObserveFinishedRun;
 import edu.touro.mco152.bm.Commands.Command;
 import edu.touro.mco152.bm.Commands.ReadCommand;
 import edu.touro.mco152.bm.Commands.WriteCommand;
 import edu.touro.mco152.bm.Invoker.Invoker;
 import edu.touro.mco152.bm.Invoker.Parameters;
+import edu.touro.mco152.bm.persist.DiskRun;
 import edu.touro.mco152.bm.ui.Gui;
 
 import java.util.LinkedList;
@@ -42,17 +44,26 @@ public class DiskWorker implements Callable<Boolean>{
 
     private boolean isCancelled = false;
 
-    Queue<Command> commands = new LinkedList<>();
-
     Command currentCommand;
+    private final Queue<ObserveFinishedRun> observers = new LinkedList<>();
 
     public DiskWorker(UIHandler inputsForBenchmark){
         this.inputsForBenchmark = inputsForBenchmark;
     }
 
+
+
     public void cancel(){
         isCancelled = true;
         Invoker.cancel();
+    }
+
+    /**
+     * this method adds a new observer to be notified when there is a new finished run.
+     * @param observeFinishedRun
+     */
+    public void addObserver(ObserveFinishedRun observeFinishedRun){
+        observers.add(observeFinishedRun);
     }
 
 
@@ -100,9 +111,16 @@ public class DiskWorker implements Callable<Boolean>{
             // this sets the type of command to be executed.
             currentCommand = new WriteCommand();
 
-            if(!Invoker.execute(currentCommand, params)){
+            DiskRun run = Invoker.execute(currentCommand, params);
+            // If the run is null that means that the command was cancelled, then it should return false.
+            // otherwise it should notify all the observers that there is a finished run.
+            if(run == null){
                 lastStatus = false;
                 return false;
+            }else{
+                for(ObserveFinishedRun observeFinishedRun: observers){
+                    observeFinishedRun.observeRun(run);
+                }
             }
         }
 
@@ -120,9 +138,16 @@ public class DiskWorker implements Callable<Boolean>{
         if (App.readTest && !isCancelled) {
             // this sets the type of command to be executed.
             currentCommand = new ReadCommand();
-            if(!Invoker.execute(currentCommand, params)){
+            DiskRun diskRun = Invoker.execute(currentCommand, params);
+
+            // If the run is null that means that the command was cancelled, then it should return false.
+            if(diskRun == null){
                 lastStatus = false;
                 return false;
+            }else {
+                for(ObserveFinishedRun observer: observers){
+                    observer.observeRun(diskRun);
+                }
             }
         }
         App.nextMarkNumber += App.numOfMarks;
