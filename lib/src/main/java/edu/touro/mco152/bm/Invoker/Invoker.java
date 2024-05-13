@@ -1,6 +1,7 @@
 package edu.touro.mco152.bm.Invoker;
 
 import edu.touro.mco152.bm.Commands.Command;
+import edu.touro.mco152.bm.persist.DiskRun;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -39,7 +40,7 @@ public class Invoker {
      * @param parameters
      * @return
      */
-    static public boolean execute(Command command, Parameters parameters){
+    static public DiskRun execute(Command command, Parameters parameters){
         currentCommand = command;
         return command.execute(parameters);
     }
@@ -50,7 +51,7 @@ public class Invoker {
      */
     public boolean execute(){
         for(Command command : commands.keySet()){
-            if(!command.execute(commands.get(command))){
+            if(command.execute(commands.get(command)) == null){
                 return false;
             }
         }
