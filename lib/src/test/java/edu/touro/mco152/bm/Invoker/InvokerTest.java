@@ -14,6 +14,7 @@ import org.junit.jupiter.api.Test;
 import java.io.File;
 import java.util.Properties;
 
+import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 class InvokerTest {
@@ -41,12 +42,12 @@ class InvokerTest {
 
     @Test
     void writeTest(){
-        assertTrue(Invoker.execute(new WriteCommand(), parameters));
+        assertNotNull(Invoker.execute(new WriteCommand(), parameters));
     }
 
     @Test
     void readTest(){
-        assertTrue(Invoker.execute(new ReadCommand(), parameters));
+        assertNotNull(Invoker.execute(new ReadCommand(), parameters));
     }
 
     private static void setupDefaultAsPerProperties()

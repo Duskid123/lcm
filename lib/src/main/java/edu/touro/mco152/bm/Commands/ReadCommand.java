@@ -6,8 +6,6 @@ import edu.touro.mco152.bm.Invoker.Parameters;
 import edu.touro.mco152.bm.UIHandler;
 import edu.touro.mco152.bm.Util;
 import edu.touro.mco152.bm.persist.DiskRun;
-import edu.touro.mco152.bm.persist.EM;
-import jakarta.persistence.EntityManager;
 
 import javax.swing.*;
 import java.io.File;
@@ -34,10 +32,10 @@ public class ReadCommand implements Command{
     /**
      * execute the command
      * @param parameters
-     * @return
+     * @return The result of the command, null if there was something wrong or if it was cancelled.
      */
     @Override
-    public boolean execute(Parameters parameters){
+    public DiskRun execute(Parameters parameters){
         boolean isMultiple = parameters.isMultiple();
         int numOfBlocks = parameters.getNumOfBlocks(),
                 blockSizeKb = parameters.getBlockSizeKb(),
@@ -81,7 +79,6 @@ public class ReadCommand implements Command{
             testFile = new File(dataDir.getAbsolutePath() + File.separator + "testdata.jdm");
         }
 
-
         for (int m = startNumFile; m <startNumFile+ numOfMarks && !isCancelled; m++) {
             if (parameters.isMultiple()) {
                 testFile = new File(dataDir.getAbsolutePath()
@@ -116,7 +113,7 @@ public class ReadCommand implements Command{
                         ex.getMessage();
                 uiHandler.showMessage(emsg, "Unable to READ", JOptionPane.ERROR_MESSAGE);
                 uiHandler.handleMessage(emsg);
-                return false;
+                return null;
             }
             long endTime = System.nanoTime();
             long elapsedTimeNs = endTime - startTime;
@@ -133,17 +130,7 @@ public class ReadCommand implements Command{
             run.setRunAvg(rMark.getCumAvg());
             run.setEndTime(new Date());
         }
-
-            /*
-              Persist info about the Read BM Run (e.g. into Derby Database) and add it to a GUI panel
-             */
-        EntityManager em = EM.getEntityManager();
-        em.getTransaction().begin();
-        em.persist(run);
-        em.getTransaction().commit();
-
-        uiHandler.addRun(run);
-        return true;
+        return isCancelled ? null :run;
     }
 
 }

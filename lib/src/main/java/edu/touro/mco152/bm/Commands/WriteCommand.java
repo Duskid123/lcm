@@ -6,15 +6,11 @@ import edu.touro.mco152.bm.Invoker.Parameters;
 import edu.touro.mco152.bm.UIHandler;
 import edu.touro.mco152.bm.Util;
 import edu.touro.mco152.bm.persist.DiskRun;
-import edu.touro.mco152.bm.persist.EM;
-import edu.touro.mco152.bm.ui.Gui;
-import jakarta.persistence.EntityManager;
 
 import java.io.File;
 import java.io.IOException;
 import java.io.RandomAccessFile;
 import java.util.Date;
-
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -33,7 +29,7 @@ public class WriteCommand implements Command{
     }
 
     @Override
-    public boolean execute(Parameters parameters){
+    public DiskRun execute(Parameters parameters){
         boolean isMultiple = parameters.isMultiple();
         int numOfBlocks = parameters.getNumOfBlocks(), blockSizeKb = parameters.getBlockSizeKb(), numOfMarks = parameters.getNumOfMarks(),
                 startNumFile = parameters.getStartNumFile();
@@ -114,7 +110,7 @@ public class WriteCommand implements Command{
                 }
             } catch (IOException ex) {
                 Logger.getLogger(App.class.getName()).log(Level.SEVERE, null, ex);
-                return false;
+                return null;
             }
 
                 /*
@@ -139,17 +135,8 @@ public class WriteCommand implements Command{
             run.setRunMin(wMark.getCumMin());
             run.setRunAvg(wMark.getCumAvg());
             run.setEndTime(new Date());
-        } // END outer loop for specified duration (number of 'marks') for WRITE benchmark
-
-            /*
-              Persist info about the Write BM Run (e.g. into Derby Database) and add it to a GUI panel
-             */
-        EntityManager em = EM.getEntityManager();
-        em.getTransaction().begin();
-        em.persist(run);
-        em.getTransaction().commit();
-
-        Gui.runPanel.addRun(run);
-        return true;
+        }
+        // if the user canceled the run then it should return null.
+        return isCancelled ? null : run;
     }
 }

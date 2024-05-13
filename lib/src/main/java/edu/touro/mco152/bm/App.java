@@ -1,7 +1,10 @@
 package edu.touro.mco152.bm;
 
+import edu.touro.mco152.bm.externalsys.SlackMessengerObserver;
 import edu.touro.mco152.bm.persist.DiskRun;
+import edu.touro.mco152.bm.persist.PersistObserver;
 import edu.touro.mco152.bm.ui.Gui;
+import edu.touro.mco152.bm.ui.GuiObserver;
 import edu.touro.mco152.bm.ui.MainFrame;
 import edu.touro.mco152.bm.ui.SelectFrame;
 
@@ -52,6 +55,8 @@ public class App {
     public static int nextMarkNumber = 1;   // number of the next mark
     public static double wMax = -1, wMin = -1, wAvg = -1;
     public static double rMax = -1, rMin = -1, rAvg = -1;
+
+
 
     /**
      * @param args the command line arguments
@@ -125,6 +130,8 @@ public class App {
                 App.saveConfig();
             }
         });
+
+
     }
 
     /**
@@ -273,8 +280,14 @@ public class App {
 
         worker = new DiskWorker(BenchUi);
 
-        BenchUi.setCallable(worker);
+        /**
+         * Adding the observers to the worker
+         */
+        worker.addObserver(new GuiObserver());
+        worker.addObserver(new PersistObserver());
+        worker.addObserver(new SlackMessengerObserver());
 
+        BenchUi.setCallable(worker);
 
         //5. start the Swing worker thread
         BenchUi.start();
